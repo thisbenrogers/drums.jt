@@ -8,19 +8,37 @@ span {
   align-self: flex-end;
 }
 
+
+
 .keys {
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  height:100vh;
+  margin-top: 22vh;
+  justify-content: center;
+  max-width: 800px;
+  height: 35vh;
 }
 
+/*  this arranges things for touchscreen
 .key {
   color:white;
   border: 2px solid pink;
   background-color: grey;
   width: 23%;
-  max-height: 23vh;
+  max-height: 22vh;
+  border-radius: 4px;
+  justify-content: space-between;
+  transition: all 0.07s;
+  display:flex;
+}*/
+
+.key {
+  color:white;
+  border: 2px solid pink;
+  background-color: grey;
+  width: 5%;
+  max-height: 10vh;
   border-radius: 4px;
   justify-content: space-between;
   transition: all 0.07s;
@@ -30,16 +48,41 @@ span {
 .playing {
   transform:scale(0.95);
   color: grey;
-  border-color: pink;
+  border-color: blue;
   background-color: white;
 }
 
-.middleRow {
-
+.topRow {
+  width: 19%;
 }
 
-.bottomRow {
+div[data-key="85"],
+div[data-key="89"] {
+  order: 2;
+}
 
+
+.middleRow {
+  width: 16%;
+  order: 100;
+}
+
+div[data-key="72"] {
+  order: 102;
+}
+
+div[data-key="74"] {
+  order: 103;
+}
+
+
+.bottomRow {
+  width: 15%;
+  order: 200;
+}
+
+div[data-key="78"] {
+  order: 202;
 }
 
 
