@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>jtDrums</title>
+</head>
+<body>
+
+  <!-- emmett.io
+  div.keys>div[data-key=""].key*16>kbd+span.sound -->
+  <div class="keys">
+    <div data-key="69" class="key firstRow topRow">
+      <kbd>e</kbd>
+      <span class="sound">1/4-open HH</span>
+    </div>
+    <div data-key="82" class="key firstRow topRow">
+      <kbd>r</kbd>
+      <span class="sound">mute hh</span>
+    </div>
+    <div data-key="74" class="key firstRow middleRow">
+      <kbd>j</kbd>
+      <span class="sound">crash 1</span>
+    </div>
+    <div data-key="78" class="key firstRow bottomRow">
+      <kbd>n</kbd>
+      <span class="sound">ride</span>
+    </div>
+    <div data-key="83" class="key secondRow middleRow">
+      <kbd>s</kbd>
+      <span class="sound">1/2-open hh</span>
+    </div>
+    <div data-key="68" class="key secondRow middleRow">
+      <kbd>d</kbd>
+      <span class="sound">closed hh</span>
+    </div>
+    <div data-key="89" class="key secondRow topRow">
+      <kbd>y</kbd>
+      <span class="sound">tom 1</span>
+    </div>
+    <div data-key="85" class="key secondRow topRow">
+      <kbd>u</kbd>
+      <span class="sound">crash 2</span>
+    </div>
+    <div data-key="70" class="key thirdRow middleRow">
+      <kbd>f</kbd>
+      <span class="sound">snare 1</span>
+    </div>
+    <div data-key="84" class="key thirdRow topRow">
+      <kbd>t</kbd>
+      <span class="sound">snare 2</span>
+    </div>
+    <div data-key="72" class="key thirdRow middleRow">
+      <kbd>h</kbd>
+      <span class="sound">tom 2</span>
+    </div>
+    <div data-key="71" class="key thirdRow middleRow">
+      <kbd>g</kbd>
+      <span class="sound">floor 1</span>
+    </div>
+    <div data-key="88" class="key fourthRow bottomRow">
+      <kbd>x</kbd>
+      <span class="sound">kick</span>
+    </div>
+    <div data-key="67" class="key fourthRow bottomRow">
+      <kbd>c</kbd>
+      <span class="sound">dbl floor</span>
+    </div>
+    <div data-key="86" class="key fourthRow bottomRow">
+      <kbd>v</kbd>
+      <span class="sound">floor 2</span>
+    </div>
+    <div data-key="66" class="key fourthRow bottomRow">
+      <kbd>b</kbd>
+      <span class="sound">floor 3</span>
+    </div>
+  </div>
+
+  <!-- emmett.io
+  audio[data-key="" src=""]*16 -->
+  <audio data-key="78" src="sounds/ride.wav"></audio>
+  <audio data-key="74" src="sounds/crash.wav"></audio>
+  <audio data-key="72" src="sounds/tom2.wav"></audio>
+  <audio data-key="85" src="sounds/chinaCrash.wav"></audio>
+  <audio data-key="89" src="sounds/tom1.wav"></audio>
+  <audio data-key="84" src="sounds/snare2.wav"></audio>
+  <audio data-key="82" src="sounds/muteHH.wav"></audio>
+  <audio data-key="69" src="sounds/quarterOpenHH.wav"></audio>
+  <audio data-key="71" src="sounds/floor1.wav"></audio>
+  <audio data-key="70" src="sounds/snare1.wav"></audio>
+  <audio data-key="68" src="sounds/closedHH.wav"></audio>
+  <audio data-key="83" src="sounds/halfOpenHH.wav"></audio>
+  <audio data-key="66" src="sounds/floor3.wav"></audio>
+  <audio data-key="86" src="sounds/floor2.wav"></audio>
+  <audio data-key="67" src="sounds/dblFloor.wav"></audio>
+  <audio data-key="88" src="sounds/kick.wav"></audio>
+
+  <footer>Drums Played by Jon Teague, Recorded by Britt Robisheaux</footer>
+
+<script>
+
+function playSound(e) {
+   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+   if (!audio) return;//stops the function
+   audio.currentTime = 0;//rewinds to the start of the sample
+   audio.play();
+   key.classList.add('playing');
+}
+
+
+function removeTransition(e) {
+  if (e.propertyName !== 'transform') return;//skip if it's not a transform
+  this.classList.remove('playing');
+}
+const keys = document.querySelectorAll('.key');
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+window.addEventListener('keydown', playSound);
+
+
+
+</script>
+
+</body>
+</html>

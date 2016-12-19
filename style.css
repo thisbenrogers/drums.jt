@@ -1,0 +1,48 @@
+ body {
+  background-color: black;
+}
+
+span {
+  margin: 2px;
+  font: 1.2em sans-serif;
+  align-self: flex-end;
+}
+
+.keys {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height:100vh;
+}
+
+.key {
+  color:white;
+  border: 2px solid pink;
+  background-color: grey;
+  width: 23%;
+  max-height: 23vh;
+  border-radius: 4px;
+  justify-content: space-between;
+  transition: all 0.07s;
+  display:flex;
+}
+
+.playing {
+  transform:scale(0.95);
+  color: grey;
+  border-color: pink;
+  background-color: white;
+}
+
+.middleRow {
+
+}
+
+.bottomRow {
+
+}
+
+
+footer {
+  font-size: 0.75em;
+}
