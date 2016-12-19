@@ -45,6 +45,7 @@ span {
   display:flex;
 }
 
+
 .playing {
   transform:scale(0.95);
   color: grey;
