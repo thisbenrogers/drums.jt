@@ -1,5 +1,6 @@
  body {
   background-color: black;
+  font-family: sans-serif;
 }
 
 span {
@@ -15,7 +16,6 @@ span {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 22vh;
   max-width: 800px;
   height: 35vh;
 }
@@ -86,8 +86,17 @@ div[data-key="78"] {
   order: 202;
 }
 
+header {
+  margin-top: 22vh;
+  margin-bottom: 30px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
 
 footer {
+  margin-top: 15px;
   color: white;
   font-size: 0.75em;
   display: flex;
